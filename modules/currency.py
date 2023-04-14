@@ -1,3 +1,4 @@
+# Get credits from credits.txt
 def get_credits():
 	with open('./data/credits.txt', 'r') as read_file:
 		return read_file.readlines()[0]
