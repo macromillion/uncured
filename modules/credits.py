@@ -18,7 +18,7 @@ people= {'DOTTIE HOLLAND': 'CEO',
 'JONATHAN MORGAN' :'Game Mechanic', 
 'KADE RAMER' :'Game Mechanic',
 'CHRISTOPHER SIMPSON-HANSON': 'Game Mechanic', 
-'REESE WITTIC': 'Game Mechanic'
+'REESE WITTIC': 'Game Mechanic',
 'JONATHAN CURTIS': 'Programmer',
 'SPENCER LIN': 'Programmer',
 'ETHAN MONROE': 'Programmer', 
