@@ -76,6 +76,41 @@ items = {
   'description':
   'From the big asteroid, this piece of rock helps with crafting the cure to the virus.'
  },
+  5: {
+  'name':
+  'Butts pie', 
+  'durability':
+  1,
+  'description':
+  'This rare item will heal your entire hp.'
+ },
+  6: {
+  'name':
+  'Stem Pack I', #heals 20 appearance should look more advance the higher the level
+  'durability':
+  1,
+  'description':
+  'A strange looking syringe that heals part of your health bar.'
+ },
+  7: {
+  'name':
+  'Stem Pack II', #heals 40
+  'durability':
+  1,
+  'description':
+  'A strange looking syringe that heals part of your health bar.'
+  8: {
+  'name':
+  'Stem Pack III', #heals 60
+  'durability':
+  1,
+  'description':
+  'A strange looking syringe that heals part of your health bar.'
+ },
+ 
+ },
+ 
+ 
  
 
 }
