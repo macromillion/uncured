@@ -28,7 +28,7 @@ key= list(people.keys())
 print('UNCURED credits:')
 time.sleep(2)
 for i in range(len(people)):
-    time.sleep(2)
+    time.sleep(3.5)
     print(f'{key[i]} - {people.get(key[i])}')
 
     
