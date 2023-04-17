@@ -99,6 +99,7 @@ items = {
   1,
   'description':
   'A strange looking syringe that heals part of your health bar.'
+  },
   8: {
   'name':
   'Stem Pack III', #heals 60
