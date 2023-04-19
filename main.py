@@ -1,4 +1,4 @@
-from modules import currency, credits, data, dialogue, inventory, json, titlecode
+from modules import currency, credits, data, scene_dialogues.py, inventory, json, titlecode
 
 
 print(currency.get_credits())
