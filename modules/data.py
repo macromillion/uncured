@@ -136,10 +136,28 @@ items = {
   0,
   'description':
   'A bigger backpack that stores your items what do you expect.  '
- },
- 
- },
+ }
+ }
+""
+Enemy stats
+"""
+enemies= {
+1:{
+  'name': 
+  '',
+  'health':
+  0, 
+  'speed':
+  0,
+  'items equipped':
+  [],
+  'armor':
+  0,
+  'drop_item_when_killed':
+  []
+  },
 
+}
 
 
  
