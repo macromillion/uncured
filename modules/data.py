@@ -108,8 +108,35 @@ items = {
   'description':
   'A strange looking syringe that heals part of your health bar.'
  },
+   9: {
+  'name':
+  'Backpack I', 
+  'durability': #infinite durability
+  0,
+  'description':
+  'A backpack that stores your items what do you expect.  '
+ },
+   10: {
+  'name':
+  'Backpack II', 
+  'durability':
+  0,
+  'description':
+  'A slighty bigger backpack that stores your items what do you expect.  '
+ },
+   11: {
+  'name':
+  'Backpack III', 
+  'durability':
+  0,
+  'description':
+  'A bigger backpack that stores your items what do you expect.  '
+ },
  
  },
+
+
+
  
  
  
