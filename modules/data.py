@@ -6,15 +6,18 @@ levels = {
   'opening_statement': [],
   'options': [],  # these will be level numbers e.g.: [1, 5, 6]
   'name': 'Entrance',  # Just a name of the room starting with a capital letter
-  'puzzles': []  # keep this empty for now
+  'puzzles': [],  # keep this empty for now
+  'actions': []
  },
+
  2: {
   'items': [],
   'difficulty': 1,
   'enemies': 1,
   'options': [],
   'name': 'Entrance',
-  'puzzles': []
+  'puzzles': [],
+  'actions': []
  }
 }
 
@@ -31,10 +34,12 @@ puzzles = {
   'no_item_errors': [
    'The door is locked, there is a green keycard reader nearby.',
    'I don\'t think that worked.', 'It wont budge.'
-  ],  # This error will return when the user gets the wrong solution, this will be random
+  ],  # This error will return when the user gets the wrong solution, this will be random 
+    'actions': []
  },
  2: {
   'name': ''
+  'actions': []
  }
 }
 
