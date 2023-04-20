@@ -28,4 +28,17 @@ Fight off the uncured zombies
 """
 
 p('You successfully fend off the uncured horde', 3)
-p('A helicopter flies above you and descends a rope for you to climb', 6)
+p('A helicopter flies above you and sends down a rope for you to climb', 6)
+p('As you fly back to your base, the asteroid explodes', 3)
+"""
+more descriptions
+"""
+p('It sends out a shockwave across the world', 3)
+p('You arrive at the base', 2)
+p('General: '+ playername +', our scientists are unable to find a cure for this new virus', 5)
+p("General: It's beyond our technolgoies", 3)
+p('General: However, over at our Mars base, we have the equipment to help find the cure', 5)
+p('General: We have received word an asteroid from the same field the one we got struck-',1)
+p('Boom! An explosion shakes the base' 3)
+p('The ground crumbles and a sinkhole appears' 4)
+
