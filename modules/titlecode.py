@@ -35,4 +35,3 @@ def show_title():
     print('Play (p) Settings (s) credits(c) Quit(q)')
     output = input()
     return output
-show_title()
