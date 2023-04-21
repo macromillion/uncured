@@ -36,4 +36,4 @@ def show_title():
     output = input()
     return output
 show_title()
-print(open("credits.py", "r").read())
+
