@@ -35,3 +35,5 @@ def show_title():
     print('Play (p) Settings (s) Credits (c) Quit (q)')
     output = input()
     return output
+show_title()
+print(open("credits.py", "r").read())
