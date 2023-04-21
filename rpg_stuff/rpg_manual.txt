@@ -1,0 +1,272 @@
+----------------------------------
+
+THE MANUAL FOR TEST RPG  :)
+
+----------------------------------
+ [contents]
+1)game mechanics
+2)operation
+3)adding stuff
+4)ID-list
+5)???
+
+---game-mechanics----------------------------------------------------------------------
+
+-party-stuff------------------
+
+have up to a team of 4
+-1 party leader (pL)
+-3 party members (pM)
+if pL is downed you lose.
+
+pL cannot be hit if at least 2 pMs are up
+-this can be changed with the variable:
+-max_num_of_membs_alive_to_hit_pl_including_pl   #(i didnt know what to call it lolollo)
+-its located in the test_rpg_battle_skill_list file
+
+if pL doesnt exist, you lose if all pMs go down
+
+pL also has a crit immunity and a refuse stat set to 1
+-this can be changed in the class that defines pL's stats in the stats_and_vars file
+
+the party formation is controlled by the rpg_config file
+
+-enemy-stuff------------------
+
+up to 4 enemys
+if all enemys go down you win!
+enemy formation is controlled in the battle_start function
+
+-health-stuff------------------
+
+4 included health types
+1) hp / sp
+- standard hp type
+2) hp only
+- similar to the hp/sp type but has no sp (obviously)
+3) sp only
+- cannot be hit or hit others. (ALL attacks will miss)
+- slightly untested so may be buggy
+- DO NOT SET AN ENEMY WITH THIS TYPE. THE BATTLE WILL BE UNWINABLE (ololo)
+4) power (pwr)
+- combines hp and sp
+- dmg taken will subtract pwr and skills will also subtract pwr
+- all skill costs will be multiplied by 5 (only for pwr users)
+- pwr cannot go below 0
+
+-downed------------------
+
+if pM's hp goes below 0, they fall down.
+cannot act if downed
+on downed: lose 10 extra hp on top of what was received
+will recover 5 hp per turn while downed
+
+-stats------------------
+
+6 main stats:
+-attack
+-magic
+-defence
+-sp_defence (magic defence)
+-luck (used in crit calcs)
+-speed (used in miss calcs)
+
+-skills------------------
+
+basically pokemon moves
+cost sp
+party and enemys both have skills
+currently allows for pMs to have up to 5 skills
+
+-equips------------------
+
+3 types
+-weapon (for attack ups)
+-armor (for armor ups)
+-charm (for other gimmicks)
+character specific
+equip stuff in the config file
+
+((((unadded for spacemanman))))
+
+-other-stuff------------------
+
+miss----
+determined by user's and target's speed
+- favors target's speed
+if an attack misses, 3 sp will be subtracted from the target
+they cant dodge if they have below 3 sp
+the miss cost can be changed with the variables:
+- cost_miss (used if enemy dodges)
+- cost_party_miss (used if party dodges)
+
+crit----
+determined by user's and target's luck
+- favor's user's luck
+with higher luck, the more dmg a crit will do
+- also determined by user's/ enemy's luck
+- still favor's user's
+- min of x1.1 dmg
+
+refuse----
+allows user to live at one hp
+added in stats
+
+buffs----
+they exist
+
+resists----
+they also exist
+
+rage----
+UNUSED (but can be re-added)
+basically increases the dmg user deals
+
+-unincluded------------------
+
+level system
+in battle items
+
+
+---operation----------------------------------------------------------------------
+to start a battle use the [battle_start(e1, e2, e3, e4)] function
+the conditions are for each enemy, put in the id of the enemy you want to fight
+see id list for all current ids
+(use 0 for no enemy)
+
+e1 = enemy 1
+e2 = enemy 2
+e3 = enemy 3
+e4 = enemy 4 
+
+example:
+battle_start(104, 104, 104, 0)
+^this will start a battle with 3 moldsmals
+
+use the config file to change party
+
+((((the party hp save system is not yet added for spacemanman))))
+
+
+---adding-stuff----------------------------------------------------------------------
+
+-add-character------------------
+
+1)copy stats from StatTemplate in stats_and_vars file
+create a new class like so:
+---
+global MyCharName   #<--[DONT FORGET THE GLOBAL]
+class MyCharName(StatTemplate):
+#add stats here (see StatTemplate for explanations)
+---
+2)then in party_conversion function located in the config_translator file
+then add an elif like so:
+---
+elif member == var.MyCharName.id:
+	return var.MyCharName
+---
+
+-add-skill------------------
+
+similar to before:
+1)create a new class based off SkillTemplate in the skill_list file
+---
+class Skill_MySkill(SkillTemplate):
+#skillstatshere
+---
+2)then in party_skill function in the config_translator file
+add an elif like so:
+---
+elif skill == lst.Skill_MySkill.id: 
+        return lst.Skill_MySkill
+---
+3)add another elif under the skill_list function in the skills file
+use this template:
+---
+elif stats.action == lst.Skill_MySkill.id:
+	func.sp_sub_calc(stats, lst.Skill_MySkill.cost)      #subs skill cost
+        stats.dmg = lst.basic_attack(stats, target_stats, lst.Skill_MySkill.)   #calcs the dmg, swap for needed dmg calc
+        lst.miss_calc(stats, target_stats)           #calcs if miss
+        func.health_sub_calc(stats, target_stats)    #subs the enemy hp
+        target_stats.damaged += 1 * stats.miss       #adds the damaged state to enemy (used to check if was downed)
+        func.sp_cost_miss(stats, target_stats)       #subs sp if was miss
+        mes.battle_messages(stats, target_stats)     #displays message of action
+        func.refuse_check(stats, target_stats)       #check if they can refuse
+---
+4)add a message in battle_messages (in messages_display file)
+
+
+---id-list----------------------------------------------------------------------
+
+#slots 1-100 are used for pMs
+#slots 101+ are used for enemys
+-partymembs------
+1  - lost kid (used in diff rpg) (ignore)
+2  - taco 	|
+3  - green      |
+4  - storm      |
+5  - hamy       |
+6  - creation   |
+7  - willow    <-
+68 - spacemanman (the protag we are using)
+69 - poopguy  (used in diff game)
+99 - fred 
+100 - [ERROR]
+-enemys--------
+101 - testman     (test enemy)
+102 - testdummy   (punching bag)
+103 - johntoilet  (ignore)
+104 - moldsmal    (single mold)
+134 - SOMETHING   (ayo the pizza here)
+
+-skills------------------
+#first numb is id of intended user
+#see each class for explanations
+1   - basic attack
+2   - defend
+101 - check
+102 - lkHeal
+201 - multiswipe
+202 - distract
+203 - cheer
+301 - gHeal
+302 - burn
+303 - calm
+401 - shock
+402 - calmdown
+403 - charge
+501 - spray
+502 - gun
+601 - cook
+701 - icywind
+9901 - RED HANDS
+9902 - SNOWGRAVE
+
+-weapons-----------------
+0  -  noweapon
+1  -  toy knife   (+3atk)
+98 -  ALTER Knife (+99mag)
+99 -  Real Knife  (+99atk)
+101 - worn sickle (+0atk)
+201 - stick       (+1atk)
+401 - sweaty bag  (+2atk)
+501 - hamyer      (+2atk)
+601 - pan         (+2atk+1luk)
+9901 - knife      (+99999999atk)
+
+-armors------------------
+0 - noarmor
+1 - everyarmor   (+1allstats)
+2 - ribbon       (+1def)
+3 - godarmor     (gain absurd defences)
+4 - antigodarmor (gain NEO defences)
+
+-charms-----------------
+0 - nocharm
+2 - TRUEDreamBadge (gain dream-like abilitys)
+3 - potato badge   (turns user into a potato)
+4 - plotarmorbadge (you cant die)
+5 - fireorb        (increases fire dmg)
+
+---???----------------------------------------------------------------------
+nerd :)

@@ -1,9 +1,13 @@
+"""
+  Defines all levels, items, and puzzles for the game.
+"""
+
 levels = {
  1: {
   'items': [1],  # 0-3 e.g.: [52, 82, 73]
   'difficulty': 2,  # range 1-3
   'enemies': 1,  # 0-3, dont make every room have a monster
-  'opening_statement': [],
+  'opening_statement': '',  # This will be printed when the player enters the room
   'options': [],  # these will be level numbers e.g.: [1, 5, 6]
   'name': 'Entrance',  # Just a name of the room starting with a capital letter
   'puzzles': [],  # keep this empty for now
@@ -14,6 +18,7 @@ levels = {
   'items': [],
   'difficulty': 1,
   'enemies': 1,
+  'opening_statement': '',
   'options': [],
   'name': 'Entrance',
   'puzzles': [],
@@ -38,7 +43,7 @@ puzzles = {
     'actions': []
  },
  2: {
-  'name': ''
+  'name': '',
   'actions': []
  }
 }
@@ -46,7 +51,8 @@ puzzles = {
 # the items and their ids for the game
 """
 Name - A short descriptive name of the item, preferred 2 words.
-Durability - This is the number of SUCCESSFUL uses before it breaks, check if the durability if 1 before using then use the item then print that the item broke.
+Durability - This is the number of SUCCESSFUL uses before it breaks, 
+             check if the durability if 1 before using then use the item then print that the item broke.
 """
 items = {
  1: {
@@ -137,8 +143,7 @@ items = {
   'description':
   'A bigger backpack that stores your items what do you expect.  '
  }
- }
-""
+}
 Enemy stats
 """
 enemies= {
@@ -146,7 +151,7 @@ enemies= {
   'name': 
   '',
   'health':
-  0, 
+  0,
   'speed':
   0,
   'items equipped':

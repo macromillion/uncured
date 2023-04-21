@@ -1,4 +1,4 @@
-#make sure inventory.txt is empty before you start doing stuff
+# make sure inventory.txt is empty before you start doing stuff
 def get_inv():
   inventory = []
   with open('../data/inventory.txt', 'r') as items:
