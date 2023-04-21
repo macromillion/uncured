@@ -144,6 +144,46 @@ items = {
   'A bigger backpack that stores your items what do you expect.  '
  }
 }
+weapons = {
+	generic_equips:{
+		1:{
+			'name':
+			'Toy Knife',
+			'durability':
+			'',
+			'damage': 
+			3,
+			'description':
+			'Back with a vengeance. (Not really) (+3atk)'
+		},
+		2:{
+			'name':
+			'AlterKnife',
+			'durability':
+			'',
+			'damage':
+			0,
+			'description':
+			'Here we were. (+99mag)'
+		},
+		3:{
+			'name':
+			'Real Knife',
+			'durability':
+			'',
+			'damage':
+			99,
+			'description':
+			'Here we are! (+99atk)'
+		}
+			
+			
+	
+	},
+	
+	
+
+"""
 Enemy stats
 """
 enemies= {
