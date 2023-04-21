@@ -11,11 +11,11 @@ p('A helicopter lands on a hospital', 1)
 p('Stepping out of the helicopter is you, a government agent', 3)
 p('You are tasked and debriefed to an asteroid that crashed a couple days ago to study a rapidly spreading virus', 5)
 p('Your helicopter lands at the hospital helipad', 3)
-p('You decend to the bathroom floor but find all the roof doors are locked', 5)
+p('You decend to the floor below but find all the roof doors locked', 5)
 """
 Section 1 and 2
 """
-p('You have now reached the crushed site', 2)
+p('You have now reached the crush site', 2)
 p('You collect and chip away pieces of the asteroid to bring back to the base', 4)
 p('But as you collect the samples, the asteriod begins to crack', 3)
 p('You step back and watch it crumble', 2)
