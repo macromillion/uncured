@@ -144,8 +144,6 @@ items = {
   'A bigger backpack that stores your items what do you expect.  '
  }
 }
-
-"""
 Enemy stats
 """
 enemies= {
@@ -165,3 +163,4 @@ enemies= {
   },
 
 }
+

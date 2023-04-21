@@ -8,6 +8,7 @@ from modules.data import levels, puzzles, items, enemies
 #
 #	Returns:
 #	(str): The first word in the response that is in the key_words list
+
 def Get_Action(prompt, key_words, mask=None):
 
 	user_input = input(prompt).lower()
