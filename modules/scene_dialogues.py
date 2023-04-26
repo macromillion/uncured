@@ -1,7 +1,7 @@
 import time
 def p(dialogue, delay):
   time.sleep(delay)
-  print(dialgoue, '...')
+  print(dialogue, '...')
   return p
 
 p('A helicopter lands on a hospital', 1)
