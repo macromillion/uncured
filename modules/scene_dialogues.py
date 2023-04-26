@@ -39,6 +39,6 @@ p('General: '+ playername +', our scientists are unable to find a cure for this 
 p("General: It's beyond our technology", 2)
 p('General: However, over at our Mars base, we have the equipment to help find a cure', 4.5)
 p('General: We have received word an asteroid from the same field the one we got struck-',4)
-p('Boom!', 0.5)
-p('Boom! An explosion shakes the base', 3)
+p('Boom!', 4)
+p('An explosion shakes the base', 3)
 p('The ground crumbles and a sinkhole appears', 4)
