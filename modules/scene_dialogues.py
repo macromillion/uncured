@@ -30,9 +30,6 @@ Fight off the uncured zombies
 p('You successfully fend off the uncured horde', 2.5)
 p('A helicopter flies above you and sends down a rope for you to climb', 3.5)
 p('As you fly back to your base, the asteroid explodes', 2.7)
-"""
-more descriptions
-"""
 p('It sends out a shockwave across the world', 2.5)
 p('You arrive at the base', 2)
 p('General: '+ playername +', our scientists are unable to find a cure for this new virus', 4.5)
