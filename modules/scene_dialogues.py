@@ -4,9 +4,6 @@ def p(dialogue, delay):
   print(dialgoue, '...')
   return p
 
-dis_dia('test', 2)
-
-
 p('A helicopter lands on a hospital', 1)
 p('Stepping out of the helicopter is you, a government agent', 3)
 p('You are tasked and debriefed to an asteroid that crashed a couple days ago to study a rapidly spreading virus', 5)
